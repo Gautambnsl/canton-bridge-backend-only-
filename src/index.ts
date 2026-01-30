@@ -18,6 +18,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "";
 const allowedOrigins: string[] = [
 	"http://localhost:5173", // Local development (Vite)
 	"http://localhost:3000", // Local development alternative
+	"https://cerulean-scone-426b80.netlify.app", // Netlify frontend
 	...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []), // Production URL from env
 ];
 
