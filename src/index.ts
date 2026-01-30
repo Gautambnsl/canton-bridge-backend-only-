@@ -53,8 +53,13 @@ app.use(express.urlencoded({ extended: true }));
 // CORS middleware - proper configuration
 app.use(
 	cors({
-		origin: allowedOrigins,
+		origin: (origin, callback) => {
+			// Allow all origins in production (Vercel handles security)
+			callback(null, true);
+		},
 		credentials: true,
+		methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+		allowedHeaders: ["Content-Type", "Authorization"],
 	}),
 );
 
